@@ -57,7 +57,9 @@ if st.session_state.sketch:
     col2.image(st.session_state.sketch, caption="Sketch")
 
 # COMPARE
+# COMPARE
 if st.session_state.original and st.session_state.sketch:
+
     st.subheader("Compare")
 
     slider = st.slider("Slide", 0.0, 1.0, 0.5)
@@ -66,7 +68,7 @@ if st.session_state.original and st.session_state.sketch:
     sketch = st.session_state.sketch.resize((800, 500))
 
     orig_np = np.array(orig)
-    sketch_np = np.array(sketch)
+    sketch_np = np.array(sketch.convert("RGB"))
 
     split = int(800 * slider)
 
